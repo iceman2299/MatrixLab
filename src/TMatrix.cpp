@@ -1,3 +1,4 @@
+#pragma once
 
 #include "TMatrix.h"
 #include "TVector.h"
@@ -48,7 +49,7 @@ TMatrix<T>& TMatrix<T>::operator+ (const TMatrix<T>& p)
 	}
 	return res;
 }
-
+template <class T>
 TMatrix<T>& TMatrix<T>::operator- (const TMatrix<T>& p)
 {
 	TMatrix<T> res = *this;
@@ -58,7 +59,7 @@ TMatrix<T>& TMatrix<T>::operator- (const TMatrix<T>& p)
 	}
 	return res;
 }
-
+template <class T>
 TMatrix<T>& TMatrix<T>::operator* (const TMatrix<T> &p)
 {
 	TMatrix<T> res(*this);
@@ -75,7 +76,7 @@ TMatrix<T>& TMatrix<T>::operator* (const TMatrix<T> &p)
 	}
 	return res;
 }
-
+template <class T>
 TMatrix<T>& TMatrix<T>::operator= (const TMatrix<T>& p)
 {
 	if (*this == &p)
@@ -89,7 +90,7 @@ TMatrix<T>& TMatrix<T>::operator= (const TMatrix<T>& p)
 	}
 	return *this;
 }
-
+template <class T>
 TMatrix<T>& TMatrix<T>::operator* (double n)
 {
 	TMatrix<T> res = *this;
@@ -102,14 +103,14 @@ TMatrix<T>& TMatrix<T>::operator* (double n)
 	}
 	return res;
 }
-
+template <class T>
 TMatrix<T>::~TMatrix<T>()
 {
 	size = 0;
 	data = nullptr;
 }
 
-
+template <class T>
 bool TMatrix<T>::operator==(const TMatrix<T>& p)
 {
 	if (size != p.size)
@@ -125,7 +126,7 @@ bool TMatrix<T>::operator==(const TMatrix<T>& p)
 	}
 }
 
-
+template <class T>
 void TMatrix<T>::Resize(int n, int m)
 {
 	if (n < 0 || m < 0)

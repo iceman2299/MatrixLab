@@ -24,7 +24,7 @@ int main()//vector
   first.Vvod();
   second.Vvod();
 
-  //sum = first + second;
+  sum = first + second;
   std::cout << "Сумма: " << first+second << "Первый: " << first << "Второй: " << second;
   razn = first - second;
   std::cout << "Сумма: " << sum << "Разность: " << razn;

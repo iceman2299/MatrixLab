@@ -11,14 +11,14 @@ protected:
 	T* data;
 public:
 	TVector(const TVector<T>&);
-	TVector(const TVector<T>&&);
+	TVector(TVector<T>&&);
 	TVector(int _size = 3);
 	~TVector();
 	int GetSize();
 	T* GetData();
 	void Resize(int);
-	TVector<T>&operator+(const TVector<T>& p);
-	TVector<T>&operator-(const TVector<T>& p);
+	TVector<T>operator+(const TVector<T>& p);
+	TVector<T>operator-(const TVector<T>& p);
 	TVector<T>&operator*(const TVector<T>& p);
 	TVector<T>&operator*(double p);
 	TVector<T>& operator=(const TVector<T>& p);
@@ -54,7 +54,7 @@ TVector<T>::TVector(const TVector<T>& p) //копирование вектора
 }
 
 template <class T>
-TVector<T>::TVector(const TVector<T>&& p) //перемещение вектора
+TVector<T>::TVector(TVector<T>&& p) //перемещение вектора
 {
 	size = p.size;
 	data = p.data;
@@ -105,34 +105,35 @@ T* TVector<T>::GetData() // получение значений вектора
 }
 
 template <class T>
-TVector<T>& TVector<T>::operator+ (const TVector <T>& p) //сложение векторов
+TVector<T> TVector<T>::operator+ (const TVector <T>& p) //сложение векторов
 {
-	TVector<T> res(size);
 	if (size == p.size) //проверка совпадения размерности 
 	{
+		TVector<T> res(size);
 		for (int i = 0; i < size; i++)
 		{
 			res.data[i] = data[i] + p.data[i];
 		}
 		std::cout << "tested " << res << std::endl;
+		return res;
 	}
 	else
 	{
 		std::cerr << "Размерность векторов не совпадает";
 	}
-	return res;
 }
 
 template <class T>
-TVector<T>& TVector<T>::operator- (const TVector <T>& p) //сложение векторов
+TVector<T> TVector<T>::operator- (const TVector <T>& p) //сложение векторов
 {
 	if (size == p.size) //проверка совпадения размерности 
 	{
+		TVector<T> res(size);
 		for (int i = 0; i < size; i++)
 		{
-			data[i] = data[i] - p.data[i];
+			res.data[i] = data[i] - p.data[i];
 		}
-		return *this;
+		return res;
 	}
 	else
 	{
