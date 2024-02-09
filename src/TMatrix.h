@@ -13,7 +13,7 @@ protected:
 public:
 	TMatrix(const TMatrix<T>& p); 
 	TMatrix(const TMatrix<T>&& p);//перемещение матрицы
-	TMatrix(int,int);//конструктор по умолчанию
+	TMatrix(int);//конструктор по умолчанию
 	~TMatrix();
 	TMatrix<T>&operator+(const TMatrix<T>&);
 	TMatrix<T>&operator-(const TMatrix<T>&);
@@ -28,3 +28,21 @@ public:
 
 
 };
+/*
+template <class T>
+TMatrix<T>::TMatrix(const TMatrix<T>& p) //копирование матрицы
+{
+	size = p.size;
+	if (data != nullptr)
+		delete[] data;
+	data = new T[size];
+	for (int i = 0; i < size; i++)
+		data[i] = p.data[i];
+}
+
+template <class T>
+
+TMatrix<T>::TMatrix(int row)
+{
+
+}*/

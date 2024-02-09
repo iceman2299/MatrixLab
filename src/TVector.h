@@ -117,9 +117,10 @@ TVector<T> TVector<T>::operator+ (const TVector <T>& p) //сложение векторов
 		std::cout << "tested " << res << std::endl;
 		return res;
 	}
-	else
+	if (size != p.size)
 	{
 		std::cerr << "Размерность векторов не совпадает";
+		throw -1;
 	}
 }
 

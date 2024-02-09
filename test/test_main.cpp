@@ -19,14 +19,14 @@ int main()//vector
   setlocale(LC_ALL, "Russian");
 
 
-  TVector<double> first, second, sum, razn;
+  TVector<double> first, second;
   
   first.Vvod();
   second.Vvod();
 
-  sum = first + second;
+  TVector<double> sum = first + second;
   std::cout << "Сумма: " << first+second << "Первый: " << first << "Второй: " << second;
-  razn = first - second;
+  TVector<double> razn = first - second;
   std::cout << "Сумма: " << sum << "Разность: " << razn;
 }
 
