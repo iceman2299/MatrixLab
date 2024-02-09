@@ -13,7 +13,7 @@ protected:
 public:
 	TMatrix(const TMatrix<T>& p); 
 	TMatrix(const TMatrix<T>&& p);//перемещение матрицы
-	TMatrix(int);//конструктор по умолчанию
+	TMatrix(int,int);//конструктор по умолчанию
 	~TMatrix();
 	TMatrix<T>&operator+(const TMatrix<T>&);
 	TMatrix<T>&operator-(const TMatrix<T>&);
